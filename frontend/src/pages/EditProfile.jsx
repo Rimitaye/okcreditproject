@@ -27,7 +27,7 @@ export default function EditProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/users/${userId}`);
+        const res = await fetch(`https://okcreditproject.onrender.com/api/users/${userId}`);
         if (res.ok) {
           const data = await res.json();
           // Update state with actual data from MongoDB
@@ -57,7 +57,7 @@ export default function EditProfile() {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/users/update/${userId}`, {
+      const res = await fetch(`https://okcreditproject.onrender.com/api/users/update/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

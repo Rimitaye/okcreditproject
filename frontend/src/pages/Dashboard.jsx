@@ -131,12 +131,19 @@ const netBalance = netSummary.totalAmount;
         </div>
       </div>
 
-      {/* List */}
-      {filteredList.map(item =>
-        mode === "customer"
-          ? <CustomerRow key={item._id} customer={item} />
-          : <SupplierRow key={item._id} supplier={item} />
-      )}
+     {/* List Section in Dashboard.jsx */}
+{filteredList.map(item => {
+  // 🟢 CALCULATE REAL-TIME BALANCE BEFORE RENDERING THE ROW
+  const transactions = item.transactions || [];
+  const realTimeBalance = transactions.reduce((acc, t) => {
+    // Check your Ledger types: use 'give'/'got' or 'credit'/'debit'
+    return t.type === 'give' ? acc + Number(t.amount) : acc - Number(t.amount);
+  }, 0);
+
+  return mode === "customer"
+    ? <CustomerRow key={item._id} customer={{ ...item, balance: realTimeBalance }} />
+    : <SupplierRow key={item._id} supplier={{ ...item, balance: realTimeBalance }} />
+})}
 
       {filteredList.length === 0 && (
         <div style={{ padding: 40, color: "#999", textAlign: "center" }}>

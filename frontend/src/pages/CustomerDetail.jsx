@@ -30,7 +30,7 @@ const dateInputRef = useRef(null);
 
  const fetchData = async () => {
     try {
-      const custRes = await axios.get(`http://localhost:5000/api/customers/${id}`);
+      const custRes = await axios.get(`https://okcreditproject.onrender.com/api/customers/${id}`);
       setCustomer(custRes.data);
 
       // 🟢 THE "STAY" LOGIC: Pull the date from the data you just showed me
@@ -40,7 +40,7 @@ const dateInputRef = useRef(null);
         setDueDate(null); // Clear if no date exists
       }
 
-      const transRes = await axios.get(`http://localhost:5000/api/transactions/${id}`);
+      const transRes = await axios.get(`https://okcreditproject.onrender.com/api/transactions/${id}`);
       setTransactions(transRes.data);
     } catch (err) {
       console.error("Fetch failed", err);
@@ -240,7 +240,7 @@ const totalBalance = transactions.reduce((acc, t) => {
       const val = e.target.value;
       if (!val) return;
       setDueDate(val);
-      axios.put(`http://localhost:5000/api/customers/${id}`, { dueDate: val });
+      axios.put(`https://okcreditproject.onrender.com/api/customers/${id}`, { dueDate: val });
     }} 
     style={{ position: "absolute", opacity: 0, width: 0, height: 0 }} 
   />

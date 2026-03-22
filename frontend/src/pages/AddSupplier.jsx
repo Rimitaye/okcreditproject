@@ -20,7 +20,7 @@ export default function AddSupplier() {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/customers/add", {
+      const res = await fetch("https://okcreditproject.onrender.com/api/customers/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(supplierData),

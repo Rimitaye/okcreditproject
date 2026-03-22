@@ -1,6 +1,6 @@
 import { db } from "../db/dexie.js";
 
-const API_BASE = "http://localhost:5000/api/sync";
+const API_BASE = "https://okcreditproject.onrender.com/api/sync";
 
 export const SyncService = {
   // 🟢 1. PUSH CUSTOMERS (Existing)
@@ -11,7 +11,7 @@ export const SyncService = {
       if (pendingCustomers.length === 0) return;
 
       for (const customer of pendingCustomers) {
-        const response = await fetch("http://localhost:5000/api/customers/add", {
+        const response = await fetch("https://okcreditproject.onrender.com/api/customers/add", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ...customer, userId })
@@ -33,7 +33,7 @@ export const SyncService = {
       const pendingTxs = await db.transactions.where("synced").equals(0).toArray();
       
       for (const tx of pendingTxs) {
-        const response = await fetch("http://localhost:5000/api/transactions/add", {
+        const response = await fetch("https://okcreditproject.onrender.com/api/transactions/add", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ...tx, userId })

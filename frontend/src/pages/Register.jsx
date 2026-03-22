@@ -8,7 +8,7 @@ export default function Register() {
 const handleRegister = async (e) => {
     e.preventDefault();
     try {
-const response = await fetch("http://localhost:5000/api/auth/register", {        method: "POST",
+const response = await fetch("https://okcreditproject.onrender.com/api/auth/register", {        method: "POST",
         headers: { "Content-Type": "application/json" },
         // ✅ CHANGE THIS LINE:
         body: JSON.stringify(formData), 

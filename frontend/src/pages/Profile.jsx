@@ -29,7 +29,7 @@ export default function EditProfile() {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/users/update/${userId}`, {
+      const res = await fetch(`https://okcreditproject.onrender.com/api/users/update/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

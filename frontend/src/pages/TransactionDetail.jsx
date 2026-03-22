@@ -14,7 +14,7 @@ export default function TransactionDetail() {
   useEffect(() => {
     const fetchTransaction = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/transactions/detail/${id}`);
+        const res = await axios.get(`https://okcreditproject.onrender.com/api/transactions/detail/${id}`);
         setTransaction(res.data);
         setNote(res.data.description || "");
       } catch (err) {
@@ -29,7 +29,7 @@ export default function TransactionDetail() {
     const reader = new FileReader();
     reader.onloadend = () => {
       setTransaction({ ...transaction, image: reader.result });
-      axios.put(`http://localhost:5000/api/transactions/${id}`, { image: reader.result });
+      axios.put(`https://okcreditproject.onrender.com/api/transactions/${id}`, { image: reader.result });
       setShowOptions(false); // Hide the options after picking
     };
     reader.readAsDataURL(file);
@@ -38,7 +38,7 @@ export default function TransactionDetail() {
 
   const handleUpdateNote = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/transactions/${id}`, { description: note });
+      await axios.put(`https://okcreditproject.onrender.com/api/transactions/${id}`, { description: note });
       setIsEditingNote(false);
       // Optional: show a success toast
     } catch (err) {
@@ -180,7 +180,7 @@ export default function TransactionDetail() {
           onClick={async () => {
             if(window.confirm("Are you sure you want to delete this transaction?")) {
               try {
-                await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+                await axios.delete(`https://okcreditproject.onrender.com/api/transactions/${id}`);
                 navigate(-1); // Goes back to the ledger automatically
               } catch (err) {
                 alert("Could not delete. Try again.");

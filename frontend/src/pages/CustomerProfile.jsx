@@ -12,7 +12,7 @@ export default function CustomerProfile() {
   useEffect(() => {
     const fetchCustomer = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/customers/${id}`);
+        const res = await axios.get(`https://okcreditproject.onrender.com/api/customers/${id}`);
         setCustomer(res.data);
         setLoading(false);
       } catch (err) {
@@ -25,7 +25,7 @@ export default function CustomerProfile() {
 const handleUpdate = async () => {
   try {
     // 🎯 Adding '/profile' tells the backend to use the correct "Door"
-    const url = `http://localhost:5000/api/customers/profile/${id}`;
+    const url = `https://okcreditproject.onrender.com/api/customers/profile/${id}`;
     
     const dataToSend = {
       name: customer.name,
@@ -48,7 +48,7 @@ const handleUpdate = async () => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure? All transaction data will be deleted permanently.")) {
       try {
-        await axios.delete(`http://localhost:5000/api/customers/${id}`);
+        await axios.delete(`https://okcreditproject.onrender.com/api/customers/${id}`);
         navigate("/"); // Redirect to home after deletion
       } catch (err) {
         alert("Error deleting customer");

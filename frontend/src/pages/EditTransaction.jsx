@@ -12,7 +12,7 @@ export  function EditTransaction() {
   useEffect(() => {
     const fetchTransaction = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/transactions/detail/${id}`);
+        const res = await axios.get(`https://okcreditproject.onrender.com/api/transactions/detail/${id}`);
         setAmount(res.data.amount);
         setType(res.data.type);
       } catch (err) {
@@ -24,7 +24,7 @@ export  function EditTransaction() {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/transactions/${id}`, {
+      await axios.put(`https://okcreditproject.onrender.com/api/transactions/${id}`, {
         amount: Number(amount),
         type: type,
       });

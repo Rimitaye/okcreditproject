@@ -36,7 +36,7 @@ useEffect(() => {
       console.log("🔄 Syncing with JWT...");
       
       // 2. Send the token in the Headers
-      const res = await axios.get(`http://localhost:5000/api/customers`, {
+      const res = await axios.get(`https://okcreditproject.onrender.com/api/customers`, {
         headers: {
           Authorization: `Bearer ${token}` 
         }
