@@ -1,0 +1,51 @@
+.net-balance-card {
+  background: #eef7f2;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+}
+
+.customer-row {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  background: #8e6ccf;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.balance.green {
+  color: green;
+}
+
+.balance.red {
+  color: red;
+}
+
+.add-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 72px;
+  background: #b6dfc0;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+}
